@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "../server/pkg/gRPC";
+option go_package = "github.com/Calvados-1997/Calc_RPC/src/server/pkg/gRPC";
 
-package helloapp;
+package helloapp.v1;
 
 service GreetingService{
     rpc Hello (HelloRequest) returns (HelloResponse);

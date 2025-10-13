@@ -6,7 +6,7 @@ import (
 	"log"
 	"net"
 
-	hellopub "github.com/Calvados-1997/Calc_RPC/pkg/gRPC"
+	hellopub "github.com/Calvados-1997/Calc_RPC/pkg/gRPC/helloapp/v1"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
