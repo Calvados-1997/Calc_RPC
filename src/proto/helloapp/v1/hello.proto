@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/Calvados-1997/Calc_RPC/src/server/pkg/gRPC";
+option go_package = "github.com/Calvados-1997/Calc_RPC/pkg/gRPC/helloapp/v1;gRPC";
 
 package helloapp.v1;
 
