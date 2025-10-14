@@ -119,7 +119,7 @@ const file_helloapp_v1_hello_proto_rawDesc = "" +
 	"\rHelloResponse\x12\x18\n" +
 	"\amessage\x18\x01 \x01(\tR\amessage2Q\n" +
 	"\x0fGreetingService\x12>\n" +
-	"\x05Hello\x12\x19.helloapp.v1.HelloRequest\x1a\x1a.helloapp.v1.HelloResponseB7Z5github.com/Calvados-1997/Calc_RPC/src/server/pkg/gRPCb\x06proto3"
+	"\x05Hello\x12\x19.helloapp.v1.HelloRequest\x1a\x1a.helloapp.v1.HelloResponseB=Z;github.com/Calvados-1997/Calc_RPC/pkg/gRPC/helloapp/v1;gRPCb\x06proto3"
 
 var (
 	file_helloapp_v1_hello_proto_rawDescOnce sync.Once

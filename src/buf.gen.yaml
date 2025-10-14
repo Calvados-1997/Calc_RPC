@@ -1,13 +1,11 @@
 version: v2
 clean: true
 plugins:
-  - remote: buf.build/protocolbuffers/go
+  - local: protoc-gen-go
     out: server/pkg/gRPC
     opt: paths=source_relative
-  - remote: buf.build/grpc/go
+  - local: protoc-gen-connect-go
     out: server/pkg/gRPC
     opt: paths=source_relative
-  - remote: buf.build/bufbuild/es
-    out: client/generated
 inputs:
   - proto_file: proto/helloapp/v1/hello.proto
