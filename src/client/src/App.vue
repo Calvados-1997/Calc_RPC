@@ -1,47 +1,31 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { createClient } from '@connectrpc/connect'
+import { GreetingService } from '../generated/helloapp/v1/hello_pb'
+import { createConnectTransport } from '@connectrpc/connect-web'
+import { ref } from 'vue'
+
+const transport = createConnectTransport({
+  baseUrl: 'http://localhost:8080',
+})
+const client = createClient(GreetingService, transport)
+
+const response = ref<string>('')
+const errContent = ref<string>('')
+async function sayHello() {
+  try {
+    const res = await client.hello({ name: 'Ken' })
+    response.value = res.message
+  } catch (err) {
+    errContent.value = 'Helloメソッドの実行に失敗しました。'
+    console.log(err)
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <button @click="sayHello">gRPCメソッド呼び出し</button>
+  <p>{{ response }}</p>
+  <p>{{ errContent }}</p>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
